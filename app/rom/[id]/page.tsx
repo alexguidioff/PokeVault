@@ -141,6 +141,12 @@ export default async function RomDetail({ params }: { params: Promise<{ id: stri
                   <a href={mainLink} target="_blank" rel="noopener noreferrer" 
                      className="block w-full text-center bg-white border-2 border-slate-200 hover:border-slate-300 text-slate-700 font-bold py-3 rounded-xl transition-all text-xs uppercase tracking-wider">
                     Alternative Download
+                        {rom['source_url'] && (
+                        <a href={rom['source_url']} target="_blank" rel="noopener noreferrer" 
+                            className="flex items-center justify-center gap-2 w-full text-slate-400 hover:text-slate-600 font-bold py-2 mt-2 transition-colors text-[10px] uppercase tracking-widest">
+                            Official Project Page
+                        </a>
+                        )}
                   </a>
                 )}
               </div>
@@ -175,33 +181,78 @@ export default async function RomDetail({ params }: { params: Promise<{ id: stri
         <main className="flex-1 space-y-12 min-w-0">
           
           {/* Titolo e Autore */}
-          <div className="border-b border-slate-200 pb-8">
-            <h1 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-3">
-              {rom['Hack Name']}
+        <div className="border-b border-slate-200 pb-8">
+        <div className="flex flex-wrap items-center gap-2 mb-3">
+            <h1 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
+            {rom['Hack Name']}
             </h1>
-            <div className="flex items-center gap-4 text-base">
-              <p className="text-slate-500 font-medium">
-                By <span className="text-slate-900 font-bold bg-slate-100 px-2 py-1 rounded-md">{rom['Name of Creator'] || 'Unknown'}</span>
-              </p>
-              {discordLink && (
-                <a href={discordLink} target="_blank" rel="noopener" className="text-[#5865F2] hover:underline font-bold text-sm flex items-center gap-1">
-                  Join Discord
-                </a>
-              )}
-            </div>
-          </div>
+            {rom['is_community_archive'] && (
+            <span className="bg-blue-100 text-blue-700 text-[10px] font-black uppercase tracking-widest px-2 py-1 rounded-md border border-blue-200">
+                Community Archive
+            </span>
+            )}
+        </div>
+        
+        <div className="flex flex-wrap items-center gap-4 text-base">
+            <p className="text-slate-500 font-medium">
+            Created by <span className="text-slate-900 font-bold bg-slate-100 px-2 py-1 rounded-md">{rom['Name of Creator'] || 'Unknown'}</span>
+            </p>
+            
+            {/* Link alla fonte originale (Il "Source" button legale) */}
+            {rom['source_url'] && (
+            <a href={rom['source_url']} target="_blank" rel="noopener noreferrer" 
+                className="text-slate-500 hover:text-slate-900 font-bold text-sm flex items-center gap-1 transition-colors">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                Original Source
+            </a>
+            )}
+       
+            {discordLink && (
+            <a 
+                href={discordLink} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="group flex items-center gap-2 bg-[#5865F2] hover:bg-[#4752C4] text-white px-4 py-2 rounded-xl text-sm font-bold shadow-sm shadow-[#5865F2]/20 transition-all active:scale-95"
+            >
+                {/* Icona SVG Discord ufficiale */}
+                <svg 
+                className="w-5 h-5 fill-current transition-transform group-hover:rotate-6" 
+                viewBox="0 0 24 24"
+                >
+                <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
+                </svg>
+                Join Community
+            </a>
+            )}
+
+        </div>
+        </div>
 
           {/* OVERVIEW E STORIA */}
-          <section>
-            <h2 className="text-xl font-black text-slate-900 mb-4">Overview</h2>
-            <div className="prose prose-slate max-w-none text-slate-700 font-medium leading-relaxed bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-              {rom['Description'] ? (
+  
+        <section>
+        <h2 className="text-xl font-black text-slate-900 mb-4">Overview</h2>
+        <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+            <div className="prose prose-slate max-w-none text-slate-700 font-medium leading-relaxed p-6">
+            {rom['Description'] ? (
                 <div dangerouslySetInnerHTML={{ __html: rom['Description'] }} />
-              ) : (
-                <p>Welcome to the official page for <strong>{rom['Hack Name']}</strong>. This project modifies the original {baseEngine} experience. Documentation and story details are currently being updated.</p>
-              )}
+            ) : (
+                <p>Welcome to the official page for <strong>{rom['Hack Name']}</strong>. This project modifies the original {baseEngine} experience.</p>
+            )}
             </div>
-          </section>
+            
+            {/* NOTA LEGALE DI ARCHIVIO */}
+            {rom['is_community_archive'] && (
+            <div className="bg-slate-50 border-t border-slate-100 p-4">
+                <p className="text-[11px] text-slate-500 italic leading-snug">
+                <strong>Archival Note:</strong> This patch is hosted by Pokévault as part of our community archive. 
+                All rights belong to <strong>{rom['Name of Creator']}</strong>. If you are the creator and wish 
+                to manage this page or request its removal, please contact us at <a href="mailto:pokevault.project@gmail.com" className="text-blue-500 hover:underline">pokevault.project@gmail.com</a>.
+                </p>
+            </div>
+            )}
+        </div>
+        </section>
 
           {/* FEATURES GRID */}
           <section>
