@@ -21,7 +21,7 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Platform</h4>
             <ul className="space-y-2 text-sm">
               <li><Link href="/" className="hover:text-blue-400 transition">Discover</Link></li>
-              <li><Link href="/upload" className="hover:text-blue-400 transition">Submit</Link></li>
+              <li><Link href="/submit" className="hover:text-blue-400 transition">Submit</Link></li>
               <li><Link href="/login" className="hover:text-blue-400 transition">Log in</Link></li>
             </ul>
           </div>
