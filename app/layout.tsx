@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 // 1. Aggiungi questo import:
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 
 import Footer from '@/components/Footer'; // Assicurati che il percorso sia corretto
 
