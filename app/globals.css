@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+/* DEFINIZIONE TEMA STILE HACKDEX */
+@theme {
+  --color-hack-bg: #f9fafb;
+  --color-hack-dark: #111827;
+  --color-hack-border: #e5e7eb;
+  --color-hack-primary: #ef4444; /* Il rosso */
+}
+
+/* RESET E BASE */
+@layer base {
+  body {
+    background-color: var(--color-hack-bg);
+    color: var(--color-hack-dark);
+    font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* INPUT: Stile pulito HackDex (Testo nero, bordo sottile) */
+  input, textarea, select {
+    background-color: #ffffff;
+    border: 1px solid var(--color-hack-border);
+    color: #000000;
+    border-radius: 0.5rem;
+    padding: 0.6rem 0.75rem;
+    font-weight: 500;
+    outline: none;
+    transition: all 0.2s;
+  }
+
+  /* Focus: bordo rosso HackDex */
+  input:focus, textarea:focus {
+    border-color: var(--color-hack-primary);
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+  }
+
+  h1, h2, h3 {
+    color: var(--color-hack-dark);
+    letter-spacing: -0.025em;
+  }
+}
+
+/* PULSANTE REVIEW: Minimalista e scuro come HackDex */
+.btn-hackdex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-hack-dark);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-hackdex:hover {
+  background-color: #000000;
+  transform: translateY(-1px);
+}
+
+.btn-hackdex:active {
+  transform: translateY(0);
+}
