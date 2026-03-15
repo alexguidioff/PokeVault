@@ -76,7 +76,7 @@ export default function PrivacyPage() {
             {/* 7. Contact */}
             <div className="pt-8 border-t border-slate-800">
               <p className="text-sm">
-                If you have questions regarding this policy, contact us at: <span className="text-blue-400">admin@alexguidioff.com</span> (or your preferred email).
+                If you have questions regarding this policy, contact us at: <span className="text-blue-400">pokevault.project@gmail.com</span>
               </p>
             </div>
           </section>

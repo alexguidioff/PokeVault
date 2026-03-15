@@ -27,15 +27,13 @@ export default function Footer() {
           </div>
 
           {/* Column 3: Support & Community */}
-          <div>
+            <div>
             <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Support</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/faq" className="hover:text-blue-400 transition">FAQ</Link></li>
-              <li><Link href="/contact" className="hover:text-blue-400 transition">Contact</Link></li>
-              <li><a href="https://github.com/alexguidioff/PokeVault" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition">GitHub</a></li>
-              <li><Link href="/roadmap" className="hover:text-blue-400 transition">Roadmap</Link></li>
+                <li><Link href="/faq" className="hover:text-blue-400 transition">FAQ</Link></li>
+                <li><a href="mailto:pokevault.project@gmail.com" className="hover:text-blue-400 transition">Contact</a></li>
             </ul>
-          </div>
+            </div>
 
           {/* Column 4: Legal */}
           <div>
