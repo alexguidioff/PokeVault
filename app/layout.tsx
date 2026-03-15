@@ -5,6 +5,8 @@ import Navbar from "@/components/Navbar";
 // 1. Aggiungi questo import:
 import Script from "next/script";
 
+import Footer from '@/components/Footer'; // Assicurati che il percorso sia corretto
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -29,7 +31,10 @@ export default function RootLayout({
         <Script src="https://cdn.jsdelivr.net/gh/marcrobledo/RomPatcher.js@master/js/formats/ips.js" strategy="beforeInteractive" />
         <Script src="https://cdn.jsdelivr.net/gh/marcrobledo/RomPatcher.js@master/js/formats/ups.js" strategy="beforeInteractive" />
         <Script src="https://cdn.jsdelivr.net/gh/marcrobledo/RomPatcher.js@master/js/formats/bps.js" strategy="beforeInteractive" />
+
+        <Footer />
       </body>
     </html>
   );
 }
+
